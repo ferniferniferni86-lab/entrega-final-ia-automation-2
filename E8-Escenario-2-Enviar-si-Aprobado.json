@@ -1,0 +1,813 @@
+{
+    "name": "E8 - Escenario 2 - Enviar si Aprobado",
+    "flow": [
+        {
+            "id": 1,
+            "module": "airtable:TriggerWatchRecords",
+            "version": 3,
+            "parameters": {
+                "base": "apphQnT4oJS0yeZPM",
+                "view": "viwJWhT8jjAbCm8om",
+                "table": "tbl5Fho5T0YsvgK5z",
+                "config": {
+                    "labelField": "﻿Médico",
+                    "triggerField": "Última modificación"
+                },
+                "formula": "",
+                "maxRecords": 1,
+                "__IMTCONN__": 12127146,
+                "useColumnId": false
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0,
+                    "name": "Detectar aprobados"
+                },
+                "setupValidation": {
+                    "result": {
+                        "valid": true,
+                        "fields": []
+                    },
+                    "version": 1,
+                    "configuration": "74371252ba46a30a"
+                },
+                "restore": {
+                    "parameters": {
+                        "base": {
+                            "label": "Control de seguros"
+                        },
+                        "view": {
+                            "label": "Aprobados para enviar"
+                        },
+                        "table": {
+                            "label": "Control de seguros"
+                        },
+                        "config": {
+                            "nested": {
+                                "labelField": {
+                                    "label": "﻿Médico"
+                                },
+                                "triggerField": {
+                                    "label": "Última modificación"
+                                }
+                            }
+                        },
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "Airtable seguros"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    },
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "config",
+                        "spec": [
+                            {
+                                "name": "triggerField",
+                                "type": "select",
+                                "label": "Trigger field",
+                                "required": true
+                            },
+                            {
+                                "name": "triggerField",
+                                "type": "hidden"
+                            },
+                            {
+                                "name": "labelField",
+                                "type": "select",
+                                "label": "Label field",
+                                "required": true
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Trigger configuration"
+                    },
+                    {
+                        "name": "maxRecords",
+                        "type": "integer",
+                        "label": "Limit",
+                        "required": true
+                    },
+                    {
+                        "name": "view",
+                        "type": "select",
+                        "label": "View"
+                    },
+                    {
+                        "name": "formula",
+                        "type": "text",
+                        "label": "Formula"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created time"
+                    },
+                    {
+                        "name": "﻿Médico",
+                        "type": "text",
+                        "label": "﻿Médico",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Especialidad",
+                        "type": "text",
+                        "label": "Especialidad",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Vencimiento",
+                        "time": false,
+                        "type": "date",
+                        "label": "Vencimiento"
+                    },
+                    {
+                        "name": "Observaciones",
+                        "type": "text",
+                        "label": "Observaciones",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Idea Semilla",
+                        "type": "text",
+                        "label": "Idea Semilla",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Estado",
+                        "type": "text",
+                        "label": "Estado"
+                    },
+                    {
+                        "name": "Mail destino",
+                        "type": "text",
+                        "label": "Mail destino"
+                    },
+                    {
+                        "name": "Borrador IA",
+                        "type": "text",
+                        "label": "Borrador IA",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Fuentes usadas",
+                        "type": "text",
+                        "label": "Fuentes usadas"
+                    },
+                    {
+                        "name": "Aprobado",
+                        "type": "boolean",
+                        "label": "Aprobado"
+                    },
+                    {
+                        "name": "Fecha de envío",
+                        "time": false,
+                        "type": "date",
+                        "label": "Fecha de envío"
+                    },
+                    {
+                        "name": "Última modificación",
+                        "type": "date",
+                        "label": "Última modificación"
+                    },
+                    {
+                        "name": "Médico (vínculo)",
+                        "spec": {
+                            "type": "text",
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Médico (vínculo)"
+                    },
+                    {
+                        "name": "Compañía",
+                        "spec": {
+                            "type": "text",
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Compañía"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "google-email:sendAnEmail",
+            "version": 4,
+            "parameters": {
+                "__IMTCONN__": 11584240
+            },
+            "filter": {
+                "name": "Solo si aprobó una persona",
+                "conditions": [
+                    [
+                        {
+                            "a": "{{1.Aprobado}}",
+                            "b": "true",
+                            "o": "boolean:equal"
+                        },
+                        {
+                            "a": "{{1.Estado}}",
+                            "b": "Aprobado por Humano",
+                            "o": "text:equal:ci"
+                        }
+                    ]
+                ]
+            },
+            "mapper": {
+                "to": [
+                    "{{1.`Mail destino`}}"
+                ],
+                "subject": "Seguro de mala praxis: documentación pendiente",
+                "bodyType": "collection",
+                "contents": [
+                    {
+                        "text": "{{1.`Borrador IA`}}",
+                        "image": {}
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0,
+                    "name": "Enviar mail al médico"
+                },
+                "setupValidation": {
+                    "result": {
+                        "valid": true,
+                        "fields": []
+                    },
+                    "version": 1,
+                    "configuration": "46ae1850fe7ac032"
+                },
+                "restore": {
+                    "expect": {
+                        "cc": {
+                            "mode": "chose"
+                        },
+                        "to": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        },
+                        "bcc": {
+                            "mode": "chose"
+                        },
+                        "from": {
+                            "mode": "chose"
+                        },
+                        "bodyType": {
+                            "label": "Collection of contents (text, images, etc.)"
+                        },
+                        "contents": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        },
+                        "signature": {
+                            "mode": "edit"
+                        },
+                        "attachments": {
+                            "mode": "chose"
+                        },
+                        "emailHeaders": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google-email"
+                            },
+                            "label": "Cuenta de prueba"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google-email",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "to",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Recipient email address",
+                            "required": true,
+                            "validate": true
+                        },
+                        "type": "array",
+                        "label": "To",
+                        "required": true
+                    },
+                    {
+                        "name": "subject",
+                        "type": "text",
+                        "label": "Subject"
+                    },
+                    {
+                        "name": "bodyType",
+                        "type": "select",
+                        "label": "Body type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "rawHtml",
+                                "collection"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "attachments",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "filename",
+                                    "type": "filename",
+                                    "label": "File name",
+                                    "required": true,
+                                    "semantic": "file:name"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "buffer",
+                                    "label": "Data",
+                                    "required": true,
+                                    "semantic": "file:data"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Attachment"
+                        },
+                        "type": "array",
+                        "label": "Attachments"
+                    },
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "From"
+                    },
+                    {
+                        "name": "cc",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Recipient email address"
+                        },
+                        "type": "array",
+                        "label": "CC recipients"
+                    },
+                    {
+                        "name": "bcc",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Recipient email address"
+                        },
+                        "type": "array",
+                        "label": "BCC recipients"
+                    },
+                    {
+                        "name": "emailHeaders",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "key",
+                                    "type": "text",
+                                    "label": "Key",
+                                    "required": true
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Value"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Email header"
+                        },
+                        "type": "array",
+                        "label": "Additional email headers"
+                    },
+                    {
+                        "name": "contents",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "text",
+                                    "type": "text",
+                                    "label": "Text"
+                                },
+                                {
+                                    "name": "image",
+                                    "spec": [
+                                        {
+                                            "name": "filename",
+                                            "type": "filename",
+                                            "label": "File name",
+                                            "semantic": "file:name"
+                                        },
+                                        {
+                                            "name": "data",
+                                            "type": "buffer",
+                                            "label": "Data",
+                                            "semantic": "file:data"
+                                        },
+                                        {
+                                            "name": "width",
+                                            "type": "uinteger",
+                                            "label": "Width"
+                                        },
+                                        {
+                                            "name": "height",
+                                            "type": "uinteger",
+                                            "label": "Height"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Image"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Content"
+                        },
+                        "type": "array",
+                        "label": "Body contents"
+                    },
+                    {
+                        "name": "signature",
+                        "type": "select",
+                        "label": "Signature content"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "airtable:ActionUpdateRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 12127146
+            },
+            "mapper": {
+                "id": "{{1.id}}",
+                "base": "apphQnT4oJS0yeZPM",
+                "table": "tbl5Fho5T0YsvgK5z",
+                "record": {
+                    "fldKncaTqUNIF5vTX": "Enviado",
+                    "flddJzJ9Y4AnuztDV": "{{now}}"
+                },
+                "typecast": false,
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0,
+                    "name": "Marcar como Enviado"
+                },
+                "setupValidation": {
+                    "result": {
+                        "valid": true,
+                        "fields": []
+                    },
+                    "version": 1,
+                    "configuration": "23f5c40fd453a3cc"
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "label": "Control de seguros"
+                        },
+                        "table": {
+                            "label": "Control de seguros"
+                        },
+                        "record": {
+                            "nested": {
+                                "fld4NEmBd4vyc04hK": {
+                                    "mode": "chose"
+                                },
+                                "fldKncaTqUNIF5vTX": {
+                                    "mode": "edit"
+                                },
+                                "fldUnbESPsy9Rqwrm": {
+                                    "mode": "chose"
+                                },
+                                "fldetnfjwTGwhkMpF": {
+                                    "mode": "chose"
+                                }
+                            }
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "Airtable seguros"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "typecast",
+                        "type": "boolean",
+                        "label": "Smart links",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "Record ID",
+                        "required": true
+                    },
+                    {
+                        "name": "record",
+                        "spec": [
+                            {
+                                "name": "fldeKGI1Loez2J2sr",
+                                "type": "text",
+                                "label": "﻿Médico"
+                            },
+                            {
+                                "name": "fld8hDLMEbbLql7h5",
+                                "type": "text",
+                                "label": "Especialidad"
+                            },
+                            {
+                                "name": "fldYaAVqs8Z5NrVRf",
+                                "time": false,
+                                "type": "date",
+                                "label": "Vencimiento"
+                            },
+                            {
+                                "name": "fldhcJXxWPhabYKGy",
+                                "type": "text",
+                                "label": "Observaciones"
+                            },
+                            {
+                                "name": "fld6myQsWvgUvAGb4",
+                                "type": "text",
+                                "label": "Idea Semilla"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldKncaTqUNIF5vTX",
+                                "type": "select",
+                                "label": "Estado"
+                            },
+                            {
+                                "name": "fld0iHd8sU605zQp1",
+                                "type": "text",
+                                "label": "Mail destino"
+                            },
+                            {
+                                "name": "fldWvtmQK9q7QaD6d",
+                                "type": "text",
+                                "label": "Borrador IA"
+                            },
+                            {
+                                "name": "fldL9qKs5pLbPUWcU",
+                                "type": "text",
+                                "label": "Fuentes usadas"
+                            },
+                            {
+                                "name": "fld4NEmBd4vyc04hK",
+                                "type": "boolean",
+                                "label": "Aprobado"
+                            },
+                            {
+                                "name": "flddJzJ9Y4AnuztDV",
+                                "time": false,
+                                "type": "date",
+                                "label": "Fecha de envío"
+                            },
+                            {
+                                "name": "fldUnbESPsy9Rqwrm",
+                                "spec": {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "Médico (vínculo)"
+                            },
+                            {
+                                "name": "fldetnfjwTGwhkMpF",
+                                "spec": {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "Compañía"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Record"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created time"
+                    },
+                    {
+                        "name": "﻿Médico",
+                        "type": "text",
+                        "label": "﻿Médico",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Especialidad",
+                        "type": "text",
+                        "label": "Especialidad",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Vencimiento",
+                        "time": false,
+                        "type": "date",
+                        "label": "Vencimiento"
+                    },
+                    {
+                        "name": "Observaciones",
+                        "type": "text",
+                        "label": "Observaciones",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Idea Semilla",
+                        "type": "text",
+                        "label": "Idea Semilla",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Estado",
+                        "type": "text",
+                        "label": "Estado"
+                    },
+                    {
+                        "name": "Mail destino",
+                        "type": "text",
+                        "label": "Mail destino"
+                    },
+                    {
+                        "name": "Borrador IA",
+                        "type": "text",
+                        "label": "Borrador IA",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Fuentes usadas",
+                        "type": "text",
+                        "label": "Fuentes usadas"
+                    },
+                    {
+                        "name": "Aprobado",
+                        "type": "boolean",
+                        "label": "Aprobado"
+                    },
+                    {
+                        "name": "Fecha de envío",
+                        "time": false,
+                        "type": "date",
+                        "label": "Fecha de envío"
+                    },
+                    {
+                        "name": "Última modificación",
+                        "type": "date",
+                        "label": "Última modificación"
+                    },
+                    {
+                        "name": "Médico (vínculo)",
+                        "spec": {
+                            "type": "text",
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Médico (vínculo)"
+                    },
+                    {
+                        "name": "Compañía",
+                        "spec": {
+                            "type": "text",
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Compañía"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu1.make.com",
+        "notes": []
+    }
+}

@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard - Control de seguros de mala praxis</title>
+<style>:root{--bg:#fff;--fg:#1f2430;--mut:#667;--card:#f6f4fa;--bd:#ddd}@media(prefers-color-scheme:dark){:root{--bg:#161820;--fg:#eee;--mut:#aab;--card:#232634;--bd:#3a3e50}}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--fg);margin:0;padding:20px 16px;max-width:900px;margin:auto}
+h1{font-size:22px;margin:0 0 4px}p.s{color:var(--mut);font-size:13px;margin:0 0 18px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:10px}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px}.c small{color:var(--mut);display:block;font-size:12px}.c b{font-size:26px}
+.bar{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:13px}.bar span.l{width:130px}.bar i{display:block;height:20px;border-radius:4px;min-width:2px}
+.n{font-size:12px;color:var(--mut);margin-top:18px}</style></head><body>
+<h1>Dashboard - Control de seguros de mala praxis</h1>
+<p class="s">Médicos externos · datos ficticios de prueba · corte al 05/11/2026 (corrida de las 5 pruebas de estrés)</p>
+<div class="g"><div class="c"><small>Total de casos</small><b>4</b></div><div class="c"><small>Tasa de error (Error / Total)</small><b style="color:#d33">25,0%</b></div><div class="c"><small>Enviados</small><b>2</b></div><div class="c"><small>Tasa de envío</small><b>50,0%</b></div></div>
+<h2 style="font-size:15px">Casos por Estado</h2><div id="b"></div>
+<script>const d=[["Pendiente",0,"#e0b000"],["Procesado por IA",1,"#3b82f6"],["Aprobado por Humano",0,"#22c55e"],["Enviado",2,"#a855f7"],["Error",1,"#ef4444"]];
+document.getElementById('b').innerHTML=d.map(x=>`<div class="bar"><span class="l">${x[0]}</span><i style="width:${x[1]*30}%;background:${x[2]}"></i><b>${x[1]}</b></div>`).join('')</script>
+<p class="n">Tasa de error = casos en Estado Error sobre el total. El único error corresponde a la prueba de falla de API provocada a propósito. Vista de solo lectura: no contiene mails ni datos personales.</p></body></html>
